@@ -2,12 +2,12 @@ import Card, { CardBody } from "./components/Card";
 import List from "./components/List";
 import Button from "./components/Button";
 import { useState, useEffect } from "react"; 
+
 function App() {
-  const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState<string>("");
 
-  const [data, setData] = useState(() => {
+  const [data, setData] = useState<string[]>(() => {
     const savedData = localStorage.getItem("miLista");
-
     return savedData ? JSON.parse(savedData) : [];
   });
 
@@ -22,14 +22,14 @@ function App() {
     }
   };
 
-const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-  if (e.key === "Enter") {
-    addTexto();
-  }
-};
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      addTexto();
+    }
+  };
 
   const delTexto = () => {
-    setData(data?.slice(0, -1));
+    setData((prev) => prev.slice(0, -1));
   };
 
   return (
@@ -40,7 +40,7 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         <input
           type="text"
           value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputText(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Escribe aquí..."
         />
