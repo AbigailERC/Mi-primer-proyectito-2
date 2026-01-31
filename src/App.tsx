@@ -29,7 +29,7 @@ const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 };
 
   const delTexto = () => {
-    setData(data.slice(0, -1));
+    setData(data?.slice(0, -1));
   };
 
   return (
