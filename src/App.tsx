@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [inputText, setInputText] = useState<string>("");
-
+  
   const [data, setData] = useState<string[]>(() => {
     const savedData = localStorage.getItem("miLista");
     return savedData ? JSON.parse(savedData) : [];
@@ -35,7 +35,6 @@ function App() {
   return (
     <Card>
       <CardBody title="Hola Tonotos" text="Ingresa el texto" />
-
       <div style={{ marginBottom: "20px" }}>
         <input
           type="text"
@@ -49,7 +48,6 @@ function App() {
       <h3>Mi lista</h3>
       <Button onClick={addTexto}>Agregar a la lista</Button>
       <Button onClick={delTexto}>Eliminar último</Button>
-
       <List data={data} />
     </Card>
   );
