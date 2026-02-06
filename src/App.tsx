@@ -46,7 +46,7 @@ function App() {
         />
       </div>
 
-      <h3>Mi lit</h3>
+      <h3>Mi lista</h3>
       <Button onClick={addTexto}>Agregar a la lista</Button>
       <Button onClick={delTexto}>Eliminar último</Button>
 
